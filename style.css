@@ -1,0 +1,656 @@
+* {
+  box-sizing: border-box;
+}
+:root {
+  --hoverTextColor: rgb(159, 32, 137);
+  --textcolor: rgb(87, 85, 85);
+}
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: "Roboto", sans-serif;
+  color: var(--textcolor);
+}
+img {
+  width: 100%;
+}
+
+.header {
+  height: 72px;
+  padding: 0px 10px;
+  outline: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 400;
+
+  background-color: white;
+}
+.headerLeft {
+  display: flex;
+  align-items: center;
+}
+.headerRight {
+  display: flex;
+  align-items: center;
+}
+.logoContainer {
+  width: 155px;
+}
+
+.searchInputContainer {
+  width: 400px;
+  height: 45px;
+  outline: 1px solid rgb(126, 126, 126);
+  display: flex;
+  margin-left: 42px;
+  border-radius: 3px;
+  align-items: center;
+  padding: 10px;
+  position: relative;
+}
+.searchIcon {
+  width: 20px;
+  margin: 6px;
+}
+form {
+  width: 100%;
+}
+.inputSearch {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+#closeSearch {
+  display: none;
+}
+/*********************************recent search styling *******************************************************/
+.searchRecentModal {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  top: 45px;
+  background-color: white;
+  height: 400px;
+  width: 100%;
+  display: none;
+  padding: 15px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  z-index: 3;
+}
+.searchInputContainer:focus-within .searchRecentModal {
+  display: block;
+  background-color: white;
+}
+.recentItem {
+  display: flex;
+  align-items: center;
+}
+.recentIcon {
+  margin-right: 10px;
+}
+
+/********************************** right header ********************************************************/
+.mobileIcon {
+  margin: 5px;
+  width: 15px;
+}
+.downloadContainer {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding-right: 20px;
+  position: relative;
+}
+.downloadContainer:hover {
+  color: var(--hoverTextColor);
+  cursor: pointer;
+}
+.downloadBtn {
+  width: 180px;
+  display: block;
+  margin-top: 30px;
+}
+.downloadHoverBtnContainer {
+  position: absolute;
+  bottom: 0;
+  top: 40px;
+  /* box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3); */
+  width: 200px;
+  /* background-color: red; */
+  display: none;
+  height: 200px;
+  padding: 10px;
+  margin-left: -30px;
+  color: var(--textcolor);
+  background-color: white;
+  z-index: 3;
+}
+.downloadContainer:hover .downloadHoverBtnContainer,
+.downloadContainer:focus .downloadHoverBtnContainer {
+  display: block;
+}
+
+.downloadContainer p {
+  margin: 0;
+  padding: 0;
+  font-size: 17px;
+}
+.profileAndCart {
+  display: flex;
+  align-items: center;
+}
+.profileAndCart:hover,
+.profileAndCart:focus {
+  color: var(--textcolor);
+}
+.profileIcon,
+.CartIcon {
+  width: 20px;
+}
+.profileAndCart p {
+  margin: 0;
+  padding: 0;
+}
+.profileContainer,
+.CartContainer {
+  padding: 0px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.becomesupplierContainer {
+  padding: 0px 30px;
+  border-left: 1.5px solid #ccc;
+  border-right: 1.5px solid #ccc;
+  font-size: 17px;
+}
+
+/***************************************** nav bar  *****************************************************/
+nav {
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+  height: 55px;
+  /* position: sticky;
+  top: 73px; */
+  background-color: white;
+}
+nav ul {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 10px;
+  height: 100%;
+  margin: 0;
+  position: relative;
+}
+nav ul li {
+  height: 100%;
+  /* background-color: red; */
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+}
+nav ul li:hover {
+  color: var(--hoverTextColor);
+  border-bottom: 4px solid var(--hoverTextColor);
+}
+
+/* nav bar sub menu */
+.subMenu {
+  position: absolute;
+  background-color: white;
+  /* height: 400px; */
+  top: 52px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  display: none;
+  left: 0;
+  right: 0;
+  margin: 0px 10px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+}
+nav ul li:hover .subMenu {
+  display: block;
+}
+.subMenu p {
+  color: var(--textcolor);
+}
+.submenulist {
+  display: flex;
+}
+.column {
+  margin-right: 40px;
+}
+
+/************************************** lowest price ****************************************************/
+.lowestpriceContainer {
+  display: flex;
+  margin: 50px auto;
+  max-width: 1100px;
+  background-color: rgb(248, 248, 255);
+}
+.lowestpriceContainer h1 {
+  font-size: 40px;
+  margin: 0;
+  color: rgb(36, 31, 31);
+}
+.lowestpricetext {
+  width: 50%;
+  padding: 25px 0 0 25px;
+}
+.lowestPrice_image {
+  width: 50%;
+}
+.lowestprice_icons {
+  width: 30px;
+  border-radius: 40px;
+  /* background-color: rgb(238, 133, 187); */
+}
+.lowestpriceone {
+  display: flex;
+  height: 50px;
+  margin: 20px 0;
+  /* justify-content: space-between; */
+}
+.lowestpriceitems {
+  padding: 0 20px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-right: 2px solid #ccc;
+}
+.lowestpriceitems p {
+  padding-left: 10px;
+}
+.downloadApp_container {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  height: 50px;
+  background-color: var(--hoverTextColor);
+  border: none;
+  outline: none;
+  padding: 0px 10px;
+  border-radius: 5px;
+  color: white;
+}
+.downloadApp_container p {
+  padding: 0px 20px;
+}
+
+/******************************** topCategories from *******************************************************/
+.topCategoriesfrom {
+  width: 1100px;
+  margin: auto;
+}
+.topCategoriesHeading {
+  display: flex;
+  align-items: center;
+}
+.horizontalline {
+  padding: 1px;
+  background-color: var(--hoverTextColor);
+  width: 50%;
+}
+.topCategoriesHeading {
+  white-space: nowrap;
+  color: rgb(8, 8, 8);
+  font-size: 20px;
+  margin: 0;
+}
+.topCategoriesImage {
+  width: 100%;
+  height: 550px;
+  background-image: url("https://images.meesho.com/images/marketing/1707113508637_1200.webp");
+  background-repeat: no-repeat;
+  margin-top: 50px;
+  display: flex;
+  align-items: flex-end;
+}
+.topCategoriesImage img {
+  max-width: 300px;
+  margin: 10px;
+  bottom: 0;
+}
+.topCategoriesImage img:first-child {
+  max-width: 400px;
+}
+
+#essen_btn {
+  margin-top: 240px;
+  width: 250px;
+  margin-left: 100px;
+}
+.essen_main {
+  width: 81.6%;
+  height: 555px;
+  /* border: 1px solid red;
+  background-color: red; */
+  margin-left: 124px;
+  background-image: url("https://images.meesho.com/images/marketing/1707113613680_1200.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: 50px;
+}
+.essentialcontainer {
+  display: flex;
+}
+.right_ess {
+  margin-top: 80px;
+  display: flex;
+  width: 60%;
+  /* border: 2px solid yellow; */
+  height: 420px;
+}
+.left_ess {
+  width: 34%;
+}
+
+.essentialcontainer img {
+  max-width: 180px;
+  margin-left: 30px;
+}
+#img1 {
+  height: 350px;
+  width: 500px;
+}
+.essen_main1 {
+  width: 81.6%;
+  height: 555px;
+  /* border: 1px solid red;
+  background-color: red; */
+  margin-left: 124px;
+  background-image: url("https://images.meesho.com/images/marketing/1707113641298_1200.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: 50px;
+}
+
+/****************************become a seller *************************************************************/
+.becomeseller_container {
+  margin-top: 100px;
+  position: relative;
+}
+.becomeseller_container img {
+  width: 100%;
+}
+.becomeseller_content {
+  position: absolute;
+  top: 0;
+}
+.becomeseller_appdownload {
+  width: 100px;
+  height: 200px;
+  /* border: 1px solid red; */
+}
+.app_down {
+  margin-left: 665px;
+}
+.becomeseller_appdownload img {
+  width: 190px;
+  height: 50px;
+  border-radius: 5px;
+  margin-left: 7px;
+}
+
+#text1 {
+  margin-left: 730px;
+  font-size: 32px;
+  margin-top: 70px;
+}
+#text2 {
+  margin-left: 520px;
+  font-size: 44px;
+  color: rgb(159, 32, 137);
+}
+#text3 {
+  margin-left: 640px;
+  font-size: 44px;
+  color: rgb(159, 32, 137);
+}
+
+/**************************** meesho benifits **************************************************/
+.meesho_benifitimg {
+  width: 20px;
+  margin-right: 10px;
+}
+.meesho_benifitimg1 {
+  width: 20px;
+  margin-right: 10px;
+}
+.meesho_benifitimg2 {
+  width: 20px;
+  margin-right: 10px;
+}
+
+.meesho_supplierBenifits {
+  display: flex;
+  padding-right: 0px 40px;
+
+  align-items: center;
+  height: 25px;
+}
+.meesho_supplierBenifits:first-child {
+  padding: 0px;
+  padding-right: 40px;
+}
+.meesho_supplierBenifitContainer {
+  display: flex;
+  align-items: center;
+  margin: 20px 0px;
+
+  width: 720px;
+  justify-content: space-around;
+}
+.meesho_supplierContainer {
+  position: relative;
+  margin-top: 30px;
+}
+.meesho_supplierContainerContent {
+  position: absolute;
+  top: 0;
+  padding: 20px 30px;
+  color: white;
+}
+.signup_btn {
+  background-color: white;
+  color: var(--hoverTextColor);
+  font-size: 20px;
+  font-weight: bold;
+  padding: 15px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+/* **********************************product_container*****************************************************9 */
+.product_container_you {
+  min-height: 500px;
+  /* background-color: #ccc; */
+  margin-top: 900px;
+  padding: 10px;
+}
+.product_container_you_content {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  height: 100%;
+  gap: 30px;
+}
+.product_category_youaside {
+  /* background-color: red; */
+  height: 100%;
+}
+.product_category_display {
+  /* background-color: green; */
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(250px, 1fr));
+}
+.search_category_input {
+  display: flex;
+  padding: 15px;
+  font-size: 18px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+}
+.search_category_input input {
+  font-size: 18px;
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding: 0px 10px;
+}
+.search_category_input input::placeholder {
+  font-size: 15px;
+}
+.display_category_list {
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+}
+.display_category_list label {
+  margin: 3px 0px;
+  text-transform: capitalize;
+}
+.productCard {
+  max-width: 250px;
+  padding: 10px;
+  box-shadow: -1px -1px 5px rgba(0, 0, 0, 0.3), 1px 1px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  cursor: pointer;
+}
+.product_image {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.product_image img {
+  /* width: 200px; */
+  height: 170px;
+  width: fit-content;
+}
+.product_price {
+  font-weight: 550;
+  font-size: 22px;
+  color: black;
+}
+.productname {
+  text-transform: capitalize;
+  color: black;
+}
+/*********************************footer********************************************************** */
+
+.shopnonstop {
+  padding: 20px;
+  /* border: 2px solid yellow; */
+  margin-top: 30px;
+}
+.downloadBtn1 {
+  width: 205px;
+  height: 50px;
+  margin-top: 5px;
+  margin-right: 10px;
+}
+.appdownload {
+  display: flex;
+}
+.footer_Container {
+  display: flex;
+  background-color: rgb(242, 250, 250);
+  line-height: 16px;
+  /* color: greyBase; */
+}
+.carrers p {
+  font-size: 16px;
+  font-weight: bold;
+}
+.carrers {
+  margin-top: 50px;
+  /* border: 2px solid yellow; */
+  margin-left: 10px;
+  color: var(--textcolor);
+}
+.legal {
+  margin-top: 50px;
+  /* border: 2px solid yellow; */
+  margin-left: 30px;
+  color: var(--textcolor);
+}
+.legal p {
+  font-size: 16px;
+  font-weight: bold;
+}
+.img1 {
+  width: 25px;
+  margin-left: 30px;
+}
+.img2 {
+  width: 25px;
+}
+.appssite {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.reachus {
+  margin-left: 30px;
+  /* border: 2px solid yellow; */
+  margin-top: 50px;
+}
+.contactus {
+  margin-left: 30px;
+
+  /* border: 2px solid yellow; */
+  margin-top: 50px;
+}
+.contactus address {
+  font-size: 14px;
+  line-height: 12px;
+}
+/*********************************dropdown footer*******************************************/
+
+#dropdownMenuButton1 {
+  width: 98%;
+  margin-left: 1%;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  height: 50px;
+  background-color: white;
+}
+.btn_text {
+  background-color: white;
+  color: black;
+  width: 98%;
+  height: 80%;
+  font-size: 18px;
+  font-weight: 400;
+}
+#drp_downContent {
+  width: 98%;
+}
+li {
+  text-decoration: none;
+}
+#links_final {
+  color: rgb(159, 32, 137);
+
+  font-weight: 700;
+}
+#links_final a {
+  margin: 0px 5px;
+  color: rgb(159, 32, 137);
+}
+#drp_downContent {
+  padding-left: 30px;
+}
